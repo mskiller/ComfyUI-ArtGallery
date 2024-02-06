@@ -148,8 +148,8 @@ def modify_wedgets_js_file(file_path, new_content, new_content_2):
             insert_position_2 += len('return { widget: uploadWidget };')
             content = content[:insert_position_2] + new_content_2 + content[insert_position_2:]
 
-            # 写回文件
-            with open(file_path, 'w') as file:
+            # 写回文件 - Fix encoding
+            with open(file_path, 'w', encoding="utf-8") as file:
                 file.write(content)
             print(f"File '{file_path}' updated successfully.✅")
         else:
